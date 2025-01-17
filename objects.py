@@ -3,6 +3,10 @@ import os
 class ensure_env:
     def __init__(self,*args,**kwargs):
         assert hasattr(self,'ENV'), 'self.ENV [] needs to be populated in order to ensure.'
+        env = ''
+        for env in self.ENV:
+            try: os.environ[env]
+            except: assert False, "Env value {} is not declared and required".format(env)
         super(ensure_env,self).__init__(*args,**kwargs)
 
 class objectizer:
