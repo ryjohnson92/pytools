@@ -50,11 +50,11 @@ class ui:
 
     @staticmethod
     def warn(txt:str='',left:bool=False,right:bool=False,center:bool=False):
-        self.print(ui.WARNING(txt),left,right,center)
+        ui.print(ui.WARNING(txt),left,right,center)
 
     @staticmethod
     def fail(txt:str=''):
-        self.print(ui.WARNING(txt),left,right,center)
+        ui.print(ui.WARNING(txt),left,right,center)
 
     @staticmethod
     def header(txt:str=''):
