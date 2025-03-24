@@ -33,9 +33,9 @@ class ui:
     @staticmethod
     def print(txt,left:bool=False,right:bool=False,center:bool=False,spacer:str=' '):
         if left:
-            print(txt.center(ui.terminal_size(), spacer))
+            print(txt.ljust(ui.terminal_size(), spacer))
         elif right:
-            print(txt.center(ui.terminal_size(), spacer))
+            print(txt.rjust(ui.terminal_size(), spacer))
         elif center:
             print(txt.center(ui.terminal_size(), spacer))
         else:
@@ -50,13 +50,11 @@ class ui:
 
     @staticmethod
     def warn(txt:str='',left:bool=False,right:bool=False,center:bool=False):
-        print(txt.center(ui.terminal_size(), "-"))
-        pass
+        self.print(ui.WARNING(txt),left,right,center)
 
     @staticmethod
     def fail(txt:str=''):
-
-        pass
+        self.print(ui.WARNING(txt),left,right,center)
 
     @staticmethod
     def header(txt:str=''):
@@ -67,4 +65,3 @@ class ui:
     @staticmethod
     def clear():
         os.system('cls' if os.name == 'nt' else 'clear')
-
