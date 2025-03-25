@@ -2,7 +2,7 @@ import os
 
 class ui:
     ENDC = '\033[0m'
-    terminal_size = lambda: os.get_terminal_size().columns
+    
     HEADER = lambda txt:f'\033[95m{txt}{ui.ENDC}'
     OKBLUE = lambda txt:f'\033[94m{txt}{ui.ENDC}'
     OKCYAN = lambda txt:f'\033[96m{txt}{ui.ENDC}'
@@ -16,7 +16,11 @@ class ui:
     PENCIL = "🖉"
     CAUTION = '⚠️'
     FAILED = '❌'
-
+    @staticmethod
+    def terminal_size()->int:
+        try:
+            return os.get_terminal_size().columns
+        except: return 125
     @staticmethod
     def doge():
         parts = [
